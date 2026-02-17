@@ -1,22 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --evergreen: #1a281f;
+  --teal: #a4c2a8;
+  --taupe: #635255;
+
+  --background: var(--teal);
+  --foreground: var(--evergreen);
+  --midground: var(--taupe);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-midground: var(--midground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-evergreen: var(--evergreen);
+  --color-teal: var(--teal);
+  --color-taupe: var(--taupe);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--evergreen);
+    --foreground: var(--teal);
   }
+}
+
+@layer base {
+    section {
+        @apply flex flex-col items-center justify-center gap-y-5
+    }
 }
 
 body {
