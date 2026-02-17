@@ -17,14 +17,15 @@ export default function Album(props: AlbumProps) {
     const safeHref = props.href ? props.href : "";
 
     return (<div className="bg-midground p-2 rounded-lg">
-        <Link href={safeHref} target="_blank" rel="noopener noreferrer">
+        <a href={safeHref} target="_blank" rel="noopener noreferrer">
             <Image
                 src={props.imgUrl ? props.imgUrl : fallbackImage}
                 alt={altText}
                 width={IMG_SIZE}
                 height={IMG_SIZE}
                 loading="eager"
+                className="transition-all hover:scale-102"
             />
-        </Link>
+        </a>
     </div>);
 }

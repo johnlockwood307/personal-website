@@ -1,33 +1,26 @@
 "use client"
 import Image from "next/image";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import { useState, useEffect, useCallback, useRef } from "react";
-
-import IMG_PVD from "@/public/gallery_images/IMG_PVD.jpg";
-import IMG_DC_NMAI from "@/public/gallery_images/IMG_DC_NMAI.jpg";
-import IMG_DC_HM from "@/public/gallery_images/IMG_DC_HM.jpg";
-import IMG_AC from "@/public/gallery_images/IMG_AC.jpg";
-import IMG_NYC from "@/public/gallery_images/IMG_NYC.jpg";
+import GALLERY_IMAGES from "./galleryImages";
 
 const CYCLE_DURATION_MS = 5000;
 
-const IMAGES = [
-    { src: IMG_NYC, location: "Liberty Island, NY" },
-    { src: IMG_DC_NMAI, location: "National Museum of the American Indian, DC" },
-    { src: IMG_AC, location: "Atlantic City, NJ" },
-    { src: IMG_DC_HM, location: "Hirshhorn Museum, DC" },
-    { src: IMG_PVD, location: "Providence, RI" }
-];
+interface GalleryProps {
+    activeGalleryIndex: number,
+    setActiveGalleryIndex: React.Dispatch<React.SetStateAction<number>>
+}
 
-function Gallery() {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+export default function Gallery({activeGalleryIndex, setActiveGalleryIndex}: GalleryProps) {
     const [paused, setPaused] = useState<boolean>(false);
 
     const cycleNextImage = useCallback(() => {
-        setActiveIndex(prev => (prev + 1) % IMAGES.length);
+        setActiveGalleryIndex(prev => (prev + 1) % GALLERY_IMAGES.length);
     }, []);
     
     const cyclePrevImage = useCallback(() => {
-        setActiveIndex(prev => (prev - 1 + IMAGES.length) % IMAGES.length);
+        setActiveGalleryIndex(prev => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
     }, []);
 
     // every 5 seconds, cycle to the next image
@@ -66,20 +59,39 @@ function Gallery() {
 
     return (<div className="relative h-screen w-full overflow-hidden bg-black">
         {/* Cycling Images */}
-        {IMAGES.map((img, i) => (
-            <div key={i} className={`absolute inset-0 transition-opacity duration-900 ease-in-out ${i === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
+        {GALLERY_IMAGES.map((img, i) => (
+            <div key={i} className={`absolute inset-0 transition-opacity duration-900 ease-in-out ${i === activeGalleryIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                 <Image
                     src={img.src} alt={`Photo from ${img.location}`} priority={i === 0} fill
                     className="object-cover"
                 />
 
-                <div className="absolute bottom-8 right-8 bg-teal/75 px-1 rounded-md">
+                <div className="absolute bottom-5 right-5 bg-teal/60 px-1 rounded-md z-20">
                     <p className="text-evergreen font-bold text-sm">
                         {img.location}
                     </p>
                 </div>
             </div>
         ))}
+
+        {/* Main Text */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-evergreen bg-teal/80 rounded-md px-2 py-1 -translate-y-35 z-20">
+                John Lockwood
+            </p>
+            <br/>
+            <div className="flex flex-row items-center bg-teal/80 gap-6 text-4xl px-2 py-1 rounded-md z-30">
+                <a href="https://github.com/johnlockwood307" target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                </a>
+                <a href="https://www.linkedin.com/in/john-lockwood-71336032b/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedinIn className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                </a>
+                <a href="mailto:johnlockwood307@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <IoMdMail className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                </a>
+            </div>
+        </div>
 
         {/* Navigation Buttons */}
         <div className="absolute inset-0 flex items-center justify-between px-4 z-20">
@@ -126,11 +138,5 @@ function Gallery() {
                 )}
             </button>
         </div>
-    </div>);
-}
-
-export default function Top() {
-    return (<div>
-        <Gallery/>
     </div>);
 }
