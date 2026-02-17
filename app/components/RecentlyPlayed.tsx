@@ -49,17 +49,10 @@ export default function RecentlyPlayed() {
                 }
             });
 
-            console.log("albumDict:");
-            console.log(albumDict);
-
             // sort album names by the amount of time listened over the 50 most recently listened songs
             const sortedAlbumNames = [...albumDict.keys()].sort((albumInfo1, albumInfo2) => (
                 albumDict.get(albumInfo2).msListened - albumDict.get(albumInfo1).msListened
             ));
-
-            console.log("sortedAlbumNames:");
-            console.log(sortedAlbumNames);
-
 
             setAlbumDict(albumDict);
             setAlbumNames(sortedAlbumNames);
