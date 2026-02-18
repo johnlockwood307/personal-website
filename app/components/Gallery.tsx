@@ -4,15 +4,10 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { useState, useEffect, useCallback, useRef } from "react";
 import GALLERY_IMAGES from "./galleryImages";
+import { CYCLE_DURATION_MS } from "./constants";
 
-const CYCLE_DURATION_MS = 5000;
-
-interface GalleryProps {
-    activeGalleryIndex: number,
-    setActiveGalleryIndex: React.Dispatch<React.SetStateAction<number>>
-}
-
-export default function Gallery({activeGalleryIndex, setActiveGalleryIndex}: GalleryProps) {
+export default function Gallery() {
+    const [activeGalleryIndex, setActiveGalleryIndex] = useState<number>(0);
     const [paused, setPaused] = useState<boolean>(false);
 
     const cycleNextImage = useCallback(() => {
@@ -66,8 +61,8 @@ export default function Gallery({activeGalleryIndex, setActiveGalleryIndex}: Gal
                     className="object-cover"
                 />
 
-                <div className="absolute bottom-5 right-5 bg-teal/60 px-1 rounded-md z-20">
-                    <p className="text-evergreen font-bold text-sm">
+                <div className="absolute bottom-5 right-5 bg-light/60 px-1 rounded-md z-20">
+                    <p className="text-dark font-bold text-sm">
                         {img.location}
                     </p>
                 </div>
@@ -75,20 +70,20 @@ export default function Gallery({activeGalleryIndex, setActiveGalleryIndex}: Gal
         ))}
 
         {/* Main Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-evergreen bg-teal/80 rounded-md px-2 py-1 -translate-y-35 z-20">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-14">
+            <p className="text-3xl md:text-4xl lg:text-6xl xl:text-8xl font-bold text-dark bg-light/80 rounded-md px-2 py-1 z-20">
                 John Lockwood
             </p>
             <br/>
-            <div className="flex flex-row items-center bg-teal/80 gap-6 text-4xl px-2 py-1 rounded-md z-30">
+            <div className="flex flex-row items-center bg-light/80 gap-6 text-4xl px-2 py-1 rounded-md z-30">
                 <a href="https://github.com/johnlockwood307" target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                    <FaGithub className="text-dark transition-all hover:text-mid hover:scale-110"/>
                 </a>
                 <a href="https://www.linkedin.com/in/john-lockwood-71336032b/" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedinIn className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                    <FaLinkedinIn className="text-dark transition-all hover:text-mid hover:scale-110"/>
                 </a>
                 <a href="mailto:johnlockwood307@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <IoMdMail className="text-evergreen transition-all hover:text-taupe hover:scale-110"/>
+                    <IoMdMail className="text-dark transition-all hover:text-mid hover:scale-110"/>
                 </a>
             </div>
         </div>

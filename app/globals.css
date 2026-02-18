@@ -5,15 +5,22 @@
   --teal: #a4c2a8;
   --taupe: #635255;
 
-  --background: var(--teal);
-  --foreground: var(--evergreen);
-  --midground: var(--taupe);
+  --light: var(--teal);
+  --dark: var(--evergreen);
+  --mid: var(--taupe);
+
+  /* light mode */
+  --background: var(--light);
+  --foreground: var(--dark);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-midground: var(--midground);
+  --color-light: var(--light);
+  --color-dark: var(--dark);
+  --color-mid: var(--mid);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
@@ -24,8 +31,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--evergreen);
-    --foreground: var(--teal);
+    --background: var(--dark);
+    --foreground: var(--light);
   }
 }
 
