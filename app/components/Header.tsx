@@ -1,10 +1,11 @@
 interface HeaderProps {
-    text: string
+    text: string,
+    large?: boolean
 }
 
 export default function Header(props: HeaderProps) {
-    return (<div className="border-b-5 px-3 border-taupe">
-        <p className="font-bold sm:text-xl md:text-2xl">
+    return (<div className="border-b-5 px-3 border-mid">
+        <p className={`font-bold ${props.large ? "sm:text-4xl md:text-5xl" : "sm:text-xl md:text-2xl"}`}>
             {props.text}
         </p>
     </div>);

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import fallbackImage from "@/public/album_img_fallback.png";
 
 const IMG_SIZE = 200;
@@ -16,7 +15,7 @@ export default function Album(props: AlbumProps) {
     const altText = `\"${props.name}\"${props.artist ? ` by ${props.artist}` : ""}`;
     const safeHref = props.href ? props.href : "";
 
-    return (<div className="bg-midground p-2 rounded-lg">
+    return (<div className="bg-mid p-2 rounded-lg">
         <a href={safeHref} target="_blank" rel="noopener noreferrer">
             <Image
                 src={props.imgUrl ? props.imgUrl : fallbackImage}
