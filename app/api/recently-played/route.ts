@@ -1,24 +1,9 @@
 import { getRecentlyPlayed } from "@/app/lib/spotify";
 import { Track } from "@/app/lib/track";
 import { NextResponse } from "next/server";
-import { headers } from "next/headers";
 
 export async function GET() {
     const response = await getRecentlyPlayed();
-
-    // block direct browser access to this endpoint
-    const headersList = await headers();
-    const fetchSite = headersList.get("sec-fetch-site");
-    if (fetchSite !== "same-origin" && process.env.NODE_ENV === "production") {
-        return new NextResponse(JSON.stringify(
-            {error: "direct access not allowed"},
-        ), {
-            status: 403
-        });
-    } else {
-        console.log("fetchSite: ", fetchSite);
-        console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
-    }
 
     // error fetching from API
     if (response.status > 400) {
