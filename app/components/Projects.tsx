@@ -3,12 +3,13 @@ import { IconType } from "react-icons";
 import { FaLink, FaGithub } from "react-icons/fa";
 
 import { useState, useEffect } from "react";
-import { CYCLE_DURATION_MS } from "./constants";
+import { CYCLE_DURATION_MS, NUM_DISPLAY_ALBUMS } from "./constants";
 
 import Image, { StaticImageData } from "next/image";
 import GALLERY_IMAGES from "./galleryImages";
 import IMG_BMT from "@/public/project_images/IMG_BMT.png";
-import IMG_CS410 from "@/public/project_images/IMG_CS410.png";
+import IMG_CS410 from "@/public/project_images/IMG_CS410.jpg";
+import IMG_ANAGRAMS from "@/public/project_images/IMG_ANAGRAMS.png";
 
 interface ProjectLinkProps {
     // link, github, ...
@@ -46,7 +47,7 @@ const projects = [
     {
         img: GALLERY_IMAGES[0].src,
         name: "This Website",
-        description: "Personal website built with React, Next.js, and Tailwind CSS. Deployed by Vercel. Showcases experience, education, and projects. Uses Spotify Web API to determine 3 recently listened albums.",
+        description: `Personal website built with React, Next.js, and Tailwind CSS. Deployed by Vercel. Showcases experience, education, and projects. Uses Spotify Web API to determine ${NUM_DISPLAY_ALBUMS} albums I've listened to recently.`,
         linkIcons: [
             {linkType: "link", url: "https://johnlockwood.dev"},
             {linkType: "github", url: "https://github.com/johnlockwood307/personal-website"}
@@ -68,6 +69,15 @@ const projects = [
         linkIcons: [
             {linkType: "link", url: "https://project-brown-mock-trial.vercel.app/"}
         ]
+    },
+    {
+        img: IMG_ANAGRAMS,
+        name: "Anagrams",
+        description: "React + Next.js project that simulates Anagrams, a word game by GamePigeon. Players are given one minute to form words from six random letters. High scores and recent scores are stored in a leaderboard using a Firebase backend.",
+        linkIcons: [
+            {linkType: "link", url: "https://play-anagrams.vercel.app/"},
+            {linkType: "github", url: "https://github.com/johnlockwood307/word-games"}
+        ]
     }
 ];
 
@@ -84,20 +94,20 @@ function Project({img, name, description, linkIcons, useGalleryImages, activeGal
         ))}</div> : <div>
             <Image src={img} alt={`Cover image for project \"${name}\"`}/>
         </div>}
-        
-        <div className="absolute flex flex-row gap-2 m-1 bg-mid p-1 rounded-sm z-20">
-            {linkIcons?.map((linkIcon, i) => (
-                <ProjectLink linkType={linkIcon.linkType} url={linkIcon.url} key={i}/>
-            ))}
-        </div>
 
         <div className="flex flex-col bg-background p-2 rounded-md gap-y-3">
             <p className="text-foreground font-bold border-b-2 text-lg">
                 {name}
             </p>
-            <p className="text-foreground text-sm">
+            <p className="text-foreground text-xs md:text-sm">
                 {description}
             </p>
+        </div>
+
+        <div className="flex flex-row gap-2 bg-mid p-1 rounded-sm z-30 justify-center mb-1">
+            {linkIcons?.map((linkIcon, i) => (
+                <ProjectLink linkType={linkIcon.linkType} url={linkIcon.url} key={i}/>
+            ))}
         </div>
     </div>);
 }
@@ -113,8 +123,8 @@ export default function Projects() {
         return () => clearInterval(interval);
     }, []);
 
-    return (<div className="flex justify-center w-fit bg-foreground p-2 rounded-xl">
-        <ul className="grid grid-cols-3 gap-4 w-full max-w-2xl justify-items-center text-background">
+    return (<div className="flex justify-center w-fit bg-foreground p-2 rounded-xl max-w-[85%] sm:max-w-[70%]">
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl justify-items-center text-background">
             {projects.map((project, i) => (
                 <li key={i}>
                     <Project img={project.useGalleryImages ? GALLERY_IMAGES[activeGalleryIndex].src : project.img}

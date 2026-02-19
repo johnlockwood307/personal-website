@@ -10,7 +10,7 @@ interface AlbumProps {
     imgUrl?: string
 }
 
-// need img url, album name, artist(s), href to album
+// displays album cover image and embeds link to the album
 export default function Album(props: AlbumProps) {
     const altText = `\"${props.name}\"${props.artist ? ` by ${props.artist}` : ""}`;
     const safeHref = props.href ? props.href : "";

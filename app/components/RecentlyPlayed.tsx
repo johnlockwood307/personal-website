@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import { Track } from "@/app/lib/track";
 import Album from "./Album";
-
-const NUM_DISPLAY_ALBUMS = 3;
+import { NUM_DISPLAY_ALBUMS } from "./constants";
 
 /**
  * msListened: total number of ms listened to among songs from this album,
@@ -21,6 +20,11 @@ export default function RecentlyPlayed() {
     const [albumNames, setAlbumNames] = useState<string[]>([]);
     const [albumDict, setAlbumDict] = useState<Map<string, AlbumInfo>>(new Map());
     
+    /*
+     * For each album name of songs in the 50 most recently listened,
+     *    populate albumDict with total ms listened and one Track from that album.
+     * Populate albumNames by sorting all albums in albumDict by decreasing listen time.
+     **/
     useEffect(() => {
         async function getTracks() {
             const res = await fetch("/api/recently-played", {

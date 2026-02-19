@@ -9,12 +9,15 @@ export async function GET() {
     // block direct browser access to this endpoint
     const headersList = await headers();
     const fetchSite = headersList.get("sec-fetch-site");
-    if (fetchSite !== "same-origin" && process.env.NODE_ENV == "production") {
+    if (fetchSite !== "same-origin" && process.env.NODE_ENV === "production") {
         return new NextResponse(JSON.stringify(
             {error: "direct access not allowed"},
         ), {
             status: 403
         });
+    } else {
+        console.log("fetchSite: ", fetchSite);
+        console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
     }
 
     // error fetching from API
