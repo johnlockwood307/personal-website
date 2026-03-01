@@ -4,10 +4,11 @@
   --evergreen: #1a281f;
   --teal: #a4c2a8;
   --taupe: #635255;
+  --tiger: #ED7B02;
 
   --light: var(--teal);
   --dark: var(--evergreen);
-  --mid: var(--taupe);
+  --mid: var(--tiger);
 
   /* light mode */
   --background: var(--light);
@@ -21,7 +22,7 @@
   --color-dark: var(--dark);
   --color-mid: var(--mid);
   
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-primary);
   --font-mono: var(--font-geist-mono);
 
   --color-evergreen: var(--evergreen);
@@ -45,5 +46,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
 }

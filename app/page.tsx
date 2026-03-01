@@ -1,8 +1,8 @@
 "use client"
-import { useState } from "react";
 import Gallery from "./components/Gallery";
 import Header from "./components/Header";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
@@ -10,14 +10,18 @@ import RecentlyPlayed from "./components/RecentlyPlayed";
 
 export default function Home() {
     return (<div className="flex flex-col gap-y-25 pb-10">
-        {/* Navbar */}
-
         <section id="top">
             <Gallery/>
         </section>
 
         <section id="about">
+            <Header text="About Me" large/>
             <About/>
+        </section>
+
+        <section id="skills">
+            <Header text="Skills" large/>
+            <Skills/>
         </section>
 
         <section id="experience">
@@ -30,7 +34,6 @@ export default function Home() {
             <Education/>
         </section>
 
-        {/* Projects */}
         <section id="projects">
             <Header text="Projects" large/>
             <Projects/>

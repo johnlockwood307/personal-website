@@ -61,19 +61,26 @@ export default function Gallery() {
                     className="object-cover"
                 />
 
-                <div className="absolute bottom-5 right-5 bg-light/60 px-1 rounded-md z-20">
-                    <p className="text-dark font-bold text-sm">
+                {/* Image location and credit */}
+                <div className="absolute bottom-3 right-5 flex flex-col z-20">
+                    <p className="text-dark font-bold text-sm bg-light/60 rounded-md px-1">
                         {img.location}
                     </p>
+                    <p className="text-dark font-bold text-xs self-end w-fit bg-light/60 rounded-md px-1">
+                        photo by me
+                    </p>
                 </div>
+                {/* <div className="absolute bottom-3 right-5 bg-light/60 px-1 rounded-md z-20">
+                    
+                </div> */}
             </div>
         ))}
 
         {/* Main Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-14">
-            <p className="text-3xl md:text-4xl lg:text-6xl xl:text-8xl font-bold text-dark bg-light/80 rounded-md px-2 py-1 z-20">
+            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-dark bg-light/80 rounded-md px-2 py-1 z-40">
                 John Lockwood
-            </p>
+            </h1>
             <br/>
             <div className="flex flex-row items-center bg-light/80 gap-6 text-4xl px-2 py-1 rounded-md z-30">
                 <a href="https://github.com/johnlockwood307" target="_blank" rel="noopener noreferrer">
@@ -114,7 +121,7 @@ export default function Gallery() {
         </div>
         
         {/* Pause Button */}
-        <div className="absolute bottom-8 left-8 z-20 flex items-center gap-4">
+        <div className="absolute bottom-12 sm:bottom-8 left-8 z-20 flex items-center gap-4">
             <button
                 onClick={handlePause}
                 className="bg-black/20 hover:bg-black/50 text-white p-3 rounded-full transition-all backdrop-blur-sm border border-white/10"

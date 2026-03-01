@@ -9,7 +9,8 @@ const positions = [
             "Teaching Assistant for CSCI 0410/1411: Foundations of AI and Machine Learning",
             "Provide conceptual and debugging help to students in office hours",
             "Grade assignments and provide feedback",
-            "Lead discussion section to review homework and socially responsible computing topics"
+            "Lead discussion section to review homework and socially responsible computing topics",
+            "Develop and maintain course website"
         ]
     },
     {

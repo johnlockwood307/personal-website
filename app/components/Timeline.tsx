@@ -5,6 +5,7 @@ export type Position = {
     degree?: string
     time: string,
     info?: string[]
+    includeCoursework?: boolean
 };
 
 function TimelineDot() {
@@ -30,6 +31,8 @@ export default function Timeline({positions} : TimelineProps) {
                     
                     {position.company && <p className="ms-5 text-xl">{position.company}</p>}
                     {position.degree && <p className="ms-5 text-xl">{position.degree}</p>}
+
+                    {position.includeCoursework && <p className="ms-5 text-md">Coursework includes:</p>}
                     
                     <ol className="list-disc list-inside">
                         {position.info?.map((info, i) => (
