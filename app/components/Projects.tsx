@@ -83,16 +83,16 @@ const projects = [
 
 function Project({img, name, description, linkIcons, useGalleryImages, activeGalleryIndex} : ProjectType) {
     return (<div className="flex flex-col bg-mid gap-y-2 p-2 rounded-xl">
-        {useGalleryImages ? <div className="relative h-35 overflow-hidden bg-black">
+        {useGalleryImages ? <div className="relative h-35 overflow-hidden">
             {GALLERY_IMAGES.map((img, i) => (
                 <div key={i} className={`absolute inset-0 transition-opacity duration-900 ease-in-out ${i === activeGalleryIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <Image
                         src={img.src} alt={`Photo from ${img.location}`} priority={i === 0} fill
-                        className="object-cover"
+                        className="object-cover rounded-md"
                     />
                 </div>
         ))}</div> : <div>
-            <Image src={img} alt={`Cover image for project \"${name}\"`}/>
+            <Image src={img} alt={`Cover image for project \"${name}\"`} className="rounded-md"/>
         </div>}
 
         <div className="flex flex-col bg-background p-2 rounded-md gap-y-3">

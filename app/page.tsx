@@ -8,6 +8,7 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import RecentlyPlayed from "./components/RecentlyPlayed";
 
+
 export default function Home() {
     return (<div className="flex flex-col gap-y-25 pb-10">
         <section id="top">
@@ -40,7 +41,7 @@ export default function Home() {
         </section>
 
         <section id="albums">
-            <Header text="Albums I've been listening to recently"/>
+            <Header text="Albums in rotation"/>
             <RecentlyPlayed/>
         </section>
     </div>);

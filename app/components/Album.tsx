@@ -23,7 +23,7 @@ export default function Album(props: AlbumProps) {
                 width={IMG_SIZE}
                 height={IMG_SIZE}
                 loading="eager"
-                className="transition-all hover:scale-102"
+                className="transition-all hover:scale-102 rounded-md"
             />
         </a>
     </div>);

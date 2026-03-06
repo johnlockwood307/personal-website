@@ -3,6 +3,7 @@ import Timeline from "./Timeline";
 const positions = [
     {
         school: "Brown University",
+        location: "Providence, RI",
         degree: "Sc.B. Applied Mathematics-Computer Science",
         time: "August 2023 - May 2027",
         includeCoursework: true,
@@ -19,6 +20,7 @@ const positions = [
     },
     {
         school: "Delaware Valley High School",
+        location: "Milford, PA",
         time: "August 2019 - June 2023",
         info: [
             "Valedictorian",

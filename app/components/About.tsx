@@ -4,7 +4,7 @@ export default function About() {
             <p>I'm a junior studying Applied Math-Computer Science at Brown. 
                 My interests include machine learning, computer graphics, cryptography, and full-stack development. 
                 My previous experience has focused on data processing, scripting, and full-stack web development.
-                Currently, I'm interested in software engineering internship opportunities.</p>
+                Currently, I'm seeking software engineering internship opportunities.</p>
         </div>
     </div>);
 }
