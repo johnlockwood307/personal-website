@@ -1,9 +1,12 @@
+import { IconType } from "react-icons";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoInformationCircleOutline } from "react-icons/io5";
+import { IoInformationCircleOutline, IoTelescope, IoSchool } from "react-icons/io5";
+import { RiStackFill } from "react-icons/ri";
 
 export type Position = {
     title?: string,
     school?: string,
+    aboutIcon?: string,
     company?: string,
     location?: string,
     subheading?: string,
@@ -19,13 +22,36 @@ function TimelineDot() {
     </div>);
 }
 
+const iconStyle = "text-mid text-xl shrink-0";
+
+const aboutIconDict = new Map<string, IconType>([
+    ["telescope", IoTelescope],
+    ["stack", RiStackFill],
+    ["school", IoSchool]
+]);
+
+interface AboutIconProps {
+    iconName: string | undefined;
+}
+
+function AboutIcon({iconName} : AboutIconProps) {
+    if (iconName) {
+        const T = aboutIconDict.get(iconName);
+
+        if (T) {
+            return <T className={iconStyle}/>
+        }
+    }
+    return <IoInformationCircleOutline className={iconStyle}/>;
+}
+
 interface TimelineProps {
     positions: Position[]
 }
 
 export default function Timeline({positions} : TimelineProps) {
     return (<div className="pt-5 max-w-[75%] md:max-w-[65%] lg:max-w-[55%] justify-center">
-        <ol className="flex flex-col relative border-s gap-y-12 mb-8">
+        <ol className="flex flex-col relative border-s gap-y-12 mb-8 pb-2">
             {positions.map((position, i) => (
                 <li key={i} className="flex flex-col gap-y-1.5">
                     <TimelineDot/>
@@ -39,7 +65,7 @@ export default function Timeline({positions} : TimelineProps) {
                         <p className="text-xl">{position.location}</p>
                     </div>}
                     {position.subheading && <div className="flex flex-row ms-5 font-bold gap-1">
-                        <IoInformationCircleOutline className="text-mid text-xl shrink-0"/>
+                        <AboutIcon iconName={position.aboutIcon}/>
                         <p className="text-sm self-center">{position.subheading}</p>
                     </div>}
                     
@@ -48,9 +74,9 @@ export default function Timeline({positions} : TimelineProps) {
 
                     {position.includeCoursework && <p className="ms-5 text-md">Coursework includes:</p>}
                     
-                    <ol className="list-disc list-inside">
+                    <ol className="list-disc list-outside ms-8">
                         {position.info?.map((info, i) => (
-                            <li key={i} className="text-sm ms-5">
+                            <li key={i} className="text-sm">
                                 {info}
                             </li>
                         ))}

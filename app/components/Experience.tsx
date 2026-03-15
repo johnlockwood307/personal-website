@@ -4,6 +4,7 @@ const positions = [
     {
         title: "Full Stack Developer",
         subheading: "Work on a team to build full stack web applications pro bono",
+        aboutIcon: "stack",
         company: "Full Stack at Brown",
         time: "September 2025 - Present",
         info: [
@@ -16,6 +17,7 @@ const positions = [
     {
         title: "Undergraduate Teaching Assistant",
         subheading: "Two semesters as a Teaching Assistant for CSCI 0410/1411: Foundations of AI and Machine Learning",
+        aboutIcon: "school",
         company: "Brown University Department of Computer Science",
         time: "August 2025 - Present",
         info: [
@@ -28,6 +30,7 @@ const positions = [
     {
         title: "Research Assistant",
         subheading: "Received Undergraduate Teaching and Research Award (UTRA) to work on the project \"Measuring the Dark Matter in the Northern Sky\"",
+        aboutIcon: "telescope",
         company: "Brown University Department of Physics",
         time: "May 2024 - July 2024",
         info: [

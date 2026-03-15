@@ -14,6 +14,7 @@ const skills = [
     "SQLite",
     "NumPy",
     "Firebase",
+    "Git",
     "REST APIs"
 ];
 

@@ -95,11 +95,11 @@ function Project({img, name, description, linkIcons, useGalleryImages, activeGal
             <Image src={img} alt={`Cover image for project \"${name}\"`} className="rounded-md"/>
         </div>}
 
-        <div className="flex flex-col bg-background p-2 rounded-md gap-y-3">
-            <p className="text-foreground font-bold border-b-2 text-lg">
+        <div className="flex flex-col bg-foreground p-2 rounded-md gap-y-3">
+            <p className="text-background font-bold border-b-2 text-lg">
                 {name}
             </p>
-            <p className="text-foreground text-xs md:text-sm">
+            <p className="text-background text-xs md:text-sm">
                 {description}
             </p>
         </div>
@@ -123,10 +123,10 @@ export default function Projects() {
         return () => clearInterval(interval);
     }, []);
 
-    return (<div className="flex justify-center w-fit bg-foreground p-2 rounded-xl max-w-[85%] sm:max-w-[70%]">
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl justify-items-center text-background">
+    return (<div className="flex justify-center w-fit p-2 rounded-xl max-w-[85%] sm:max-w-[70%]">
+        <ul className="columns-2 md:columns-3 gap-4 space-y-4 w-full max-w-2xl justify-items-center text-background">
             {projects.map((project, i) => (
-                <li key={i}>
+                <li key={i} className="break-inside-avoid">
                     <Project img={project.useGalleryImages ? GALLERY_IMAGES[activeGalleryIndex].src : project.img}
                         name={project.name} description={project.description} linkIcons={project.linkIcons}
                         useGalleryImages={project.useGalleryImages} activeGalleryIndex={activeGalleryIndex}/>

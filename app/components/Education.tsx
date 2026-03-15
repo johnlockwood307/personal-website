@@ -18,15 +18,15 @@ const positions = [
             "Probabilistic Models"
         ]
     },
-    {
-        school: "Delaware Valley High School",
-        location: "Milford, PA",
-        time: "August 2019 - June 2023",
-        info: [
-            "Valedictorian",
-            "Eagle Scout"
-        ]
-    }
+    // {
+    //     school: "Delaware Valley High School",
+    //     location: "Milford, PA",
+    //     time: "August 2019 - June 2023",
+    //     info: [
+    //         "Valedictorian",
+    //         "Eagle Scout"
+    //     ]
+    // }
 ]
 
 export default function Education() {
