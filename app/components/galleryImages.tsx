@@ -3,9 +3,11 @@ import IMG_DC_NMAI from "@/public/gallery_images/IMG_DC_NMAI.jpg";
 import IMG_DC_HM from "@/public/gallery_images/IMG_DC_HM.jpg";
 import IMG_AC from "@/public/gallery_images/IMG_AC.jpg";
 import IMG_NYC from "@/public/gallery_images/IMG_NYC.jpg";
+import IMG_PIT from "@/public/gallery_images/IMG_PIT.jpg";
 
 const GALLERY_IMAGES = [
     { src: IMG_NYC, location: "Liberty Island, NY" },
+    { src: IMG_PIT, location: "Pittsburgh, PA" },
     { src: IMG_DC_NMAI, location: "National Museum of the American Indian, DC" },
     { src: IMG_AC, location: "Atlantic City, NJ" },
     { src: IMG_DC_HM, location: "Hirshhorn Museum, DC" },

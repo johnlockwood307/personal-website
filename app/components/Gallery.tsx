@@ -67,7 +67,7 @@ export default function Gallery() {
                         {img.location}
                     </p>
                     <p className="text-dark font-bold text-xs self-end w-fit bg-light/60 rounded-md px-1">
-                        photo by me
+                        Photo by John Lockwood
                     </p>
                 </div>
                 {/* <div className="absolute bottom-3 right-5 bg-light/60 px-1 rounded-md z-20">

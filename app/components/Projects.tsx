@@ -47,7 +47,7 @@ const projects = [
     {
         img: GALLERY_IMAGES[0].src,
         name: "This Website",
-        description: `Personal website built with React, Next.js, and Tailwind CSS. Deployed by Vercel. Showcases experience, education, and projects. Uses Spotify Web API to determine ${NUM_DISPLAY_ALBUMS} albums I've listened to recently.`,
+        description: `Personal website built with React, Next.js, and Tailwind CSS. Deployed by Vercel. Showcases experience, education, and projects.`,
         linkIcons: [
             {linkType: "link", url: "https://johnlockwood.dev"},
             {linkType: "github", url: "https://github.com/johnlockwood307/personal-website"}

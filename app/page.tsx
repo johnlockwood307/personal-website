@@ -40,9 +40,9 @@ export default function Home() {
             <Projects/>
         </section>
 
-        <section id="albums">
+        {/* <section id="albums">
             <Header text="Albums in rotation"/>
             <RecentlyPlayed/>
-        </section>
+        </section> */}
     </div>);
 }
