@@ -10,12 +10,16 @@ const positions = [
         info: [
             "Machine Learning",
             "Computer Graphics",
+            "Computer Vision",
             "Applied Cryptography",
+            "Robotics",
             "Computer Systems",
             "Numerical Optimization",
             "Abstract Algebra",
+            "Applied Complex Analysis",
             "Applied ODEs / PDEs",
-            "Probabilistic Models"
+            "Probabilistic Models",
+            "Computational Probability
         ]
     },
     // {
