@@ -19,7 +19,7 @@ const positions = [
             "Applied Complex Analysis",
             "Applied ODEs / PDEs",
             "Probabilistic Models",
-            "Computational Probability
+            "Computational Probability"
         ]
     },
     // {
